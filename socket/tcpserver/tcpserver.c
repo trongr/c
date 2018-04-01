@@ -12,13 +12,12 @@ int main() {
         .sin_port = htons(9001),
         .sin_addr.s_addr = INADDR_ANY};
 
-    if (connect(sock, (struct sockaddr *)&server_addr, sizeof(server_addr)) == -1) {
-        printf("ERROR connecting to remote socket");
-    }
+    bind(sock, (struct sockaddr *)&server_addr, sizeof(server_addr));
+    listen(sock, 5);
 
-    char res[256];
-    recv(sock, &res, sizeof(res), 0);
-    printf("Server responded: %s\n", res);
+    int client = accept(sock, NULL, NULL);
+    char msg[256] = "Hello there!";
+    send(client, msg, sizeof(msg), 0);
 
     close(sock);
     return 0;
