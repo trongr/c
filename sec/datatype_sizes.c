@@ -8,4 +8,10 @@ int main() {
     printf("The 'long long int' data type is %lu bytes\n", sizeof(long long int));
     printf("The 'float' data type is\t %lu bytes\n", sizeof(float));
     printf("The 'char' data type is\t\t %lu bytes\n", sizeof(char));
+
+    // Pointers are 8 bytes
+    char *charPointer;
+    int *intPointer;
+    printf("The 'char pointer' data type is\t\t %lu bytes\n", sizeof(charPointer));
+    printf("The 'int pointer' data type is\t\t %lu bytes\n", sizeof(intPointer));
 }
